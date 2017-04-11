@@ -1,0 +1,43 @@
+body {
+    background-color: #F9F8ED;
+}
+ html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+      }
+
+#welcome{
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 45px;
+    color: #1F4E5F; 
+}
+
+#map {
+   margin: 0 auto;   
+   width:700px;
+   height:430px;
+      }
+
+#derecha{
+  text-align: right;
+  position: absolute;
+  color: #F59D2A;
+  top: 180px; 
+  left: 900px;
+}
+
+#descripctionmap {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 25px;
+  color: #1F4E5F;
+}
+#piepagina{
+  text-align: center;
+  color: #8597a5;
+  margin-top: 50px;
+  font-family: 'Oswald', sans-serif;
+}
