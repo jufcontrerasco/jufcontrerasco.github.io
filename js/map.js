@@ -3,7 +3,7 @@
 
 var elevator;
 var map;
-var librariesData = [];
+var PoliStation = [];
 
 function initMap() {   
     
@@ -19,7 +19,7 @@ function initMap() {
    
     var xmlhttp = new XMLHttpRequest();
     
-    var url = "https://data.cityofchicago.org/api/views/hu6v-hsqb/rows.json?accessType=DOWNLOAD"; //
+    var url = "https://data.cityofchicago.org/api/views/z8bn-74gv/rows.json?accessType=DOWNLOAD"; //
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 
@@ -32,24 +32,19 @@ function initMap() {
             json = JSON.parse(text);
             
            
-            for (var i = 0; i<44; i++) { //Agregar informacion marcadores
+            for (var i = 0; i<23; i++) { //Agregar informacion marcadores
                 var datos = [];
-                datos.push(json.data[i][18]); //0.Latitud
-                datos.push(json.data[i][19]); //1.Longitud
-                datos.push(json.data[i][8]);  //2.Nombre
-                datos.push(json.data[i][9]);  //3.Calle
-                datos.push(json.data[i][10]); //Dias
-                datos.push(json.data[i][11]); //start time - 5
-                datos.push(json.data[i][12]); //end time - 6
-                datos.push(json.data[i][13]); //start date -7
-                datos.push(json.data[i][14]); //end date - 8
-                datos.push(json.data[i][15][0]);
-
-                librariesData.push(datos);
+                datos.push(json.data[i][20]); //0.Latitud
+                datos.push(json.data[i][21]); //1.Longitud
+                datos.push(json.data[i][9]);  //2.Nombre
+                datos.push(json.data[i][10]); //3.Calle
+                datos.push(json.data[i][15][0]); //4.Telefono1
+                datos.push(json.data[i][16][0]); //5.Telefono2
+                datos.push(json.data[i][14][0]); //6.PaginaWeb
+                PoliStation.push(datos);
             };           
     
-            var numMarkers = librariesData.length; //Numero de marcadores
-
+            var numMarkers = PoliStation.length; //Numero de marcadores
             var markers = [];
             google.maps.event.addListener(map, 'idle', function() {  //Añadir marcadores al mapa
             
@@ -87,25 +82,26 @@ function initMap() {
                 if (status === google.maps.ElevationStatus.OK)
                 {
                     
-                    var prev_infowindow =false;
+                    var prev_infowindow =false; 
+                                 
 
                     $.each(results, function(key, value) {
 
                         
                         markers[key] = new google.maps.Marker({
-                            position: {lat: Number(librariesData[key][0]), lng: Number(librariesData[key][1])},
-                            map: map,
-                            
+                            position: {lat: Number(PoliStation[key][0]), lng: Number(PoliStation[key][1])},
+                            map: map,                                            
                         });
+
                         google.maps.event.addListener(markers[key], 'click', function() {
                           
                             if( prev_infowindow ) {
                                 prev_infowindow.close();
                             }
-                            infowindow.setContent(librariesData[key][2]);
+                            infowindow.setContent(PoliStation[key][2]);
                             infowindow.open(map, markers[key]);
                             
-                            document.getElementById("market-name").innerHTML = "<b>Market Name</b>: " + librariesData[key][2] + "</em>";
+                            document.getElementById("station-name").innerHTML = "<b>Police Station Name</b>: " + PoliStation[key][2] + "</em>";
                             
                         });
                         
