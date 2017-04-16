@@ -29,7 +29,7 @@ function initMap() {
             json = JSON.parse(text);
             
            
-            for (var i = 133; i<172; i++) { //Agregar informacion marcadores
+            for (var i = 0; i<263; i++) { //Agregar informacion marcadores
                 var datos = [];
                 datos.push(json.data[i][19]); //0.Latitud
                 datos.push(json.data[i][20]); //1.Longitud
@@ -38,7 +38,6 @@ function initMap() {
                 datos.push(json.data[i][8]);  //4.Localidad
                 datos.push(json.data[i][10]); //5.Tipo propiedad
                 datos.push(json.data[i][14]); //6.Telefono1
-                datos.push(json.data[i][16]*12); //6.Telefono2
                 AptData.push(datos);
             };           
     
@@ -88,25 +87,18 @@ function initMap() {
                         
                         markers[key] = new google.maps.Marker({
                             position: {lat: Number(AptData[key][0]), lng: Number(AptData[key][1])},
-                            map: map,
-                            icon: "img/pin2.png",                                           
+                            map: map,                                            
                         });
 
                         google.maps.event.addListener(markers[key], 'click', function() {
-                            
-                            document.getElementById('esta').style.display = 'block';
-
+                          
                             if( prev_infowindow ) {
                                 prev_infowindow.close();
                             }
-                            infowindow.setContent(AptData[key][3]);
+                            infowindow.setContent(AptData[key][2]);
                             infowindow.open(map, markers[key]);
 
-                            document.getElementById("Nombre").innerHTML = AptData[key][2];
-                            document.getElementById("Direccion").innerHTML = AptData[key][3];
-                            document.getElementById("Localidad").innerHTML = AptData[key][4];
-                            document.getElementById("Tipo").innerHTML = AptData[key][5];
-                            document.getElementById("Telefono").innerHTML = AptData[key][6];
+                            
                             
                         });
                         
@@ -126,11 +118,9 @@ function initMap() {
                     title: 'Department of Computer Science - University of Illinois',
                     });                     
                 
-            markerU.addListener('click', function() {
+            markerU.addListener('click', function() {            
                 infomarkerU.open(map, markerU);
-
               });
-
             markerU.setMap(map);  
 
             var trafficLayer = new google.maps.TrafficLayer();

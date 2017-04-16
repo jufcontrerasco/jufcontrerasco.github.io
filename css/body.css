@@ -1,43 +1,89 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
     background-color: #F9F8ED;
 }
- html, body {
+html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-
       }
-
+#header{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 #welcome{
     text-align: center;
     font-family: 'Oswald', sans-serif;
     font-size: 45px;
     color: #1F4E5F; 
 }
-
-#map {
-   margin: 0 auto;   
-   width:700px;
-   height:430px;
-      }
-
-#derecha{
-  text-align: right;
-  position: absolute;
-  color: #F59D2A;
-  top: 180px; 
-  left: 900px;
-}
-
 #descripctionmap {
   font-family: 'Oswald', sans-serif;
   text-align: center;
   font-size: 25px;
   color: #1F4E5F;
 }
+#map {
+   margin: 0 auto;    
+   width:800px;
+   height:500px;
+   float: left;
+   margin-left: 10px;
+   margin-right: 10px;
+      }
+#body{
+  margin: auto;
+  width: 1420px;
+  height: 500px;
+}
+#estadisticas{
+  width: 300px;
+  height: 500px;
+  background-color: #1F4E5F;;
+  float: left;
+
+}
+#iconos{
+  width: 300px;
+  height: 500px;
+  background-color: #1F4E5F;;
+  float: left;
+}
+
 #piepagina{
   text-align: center;
-  color: #8597a5;
-  margin-top: 50px;
+  color: #1F4E5F;
+  margin-top: 30px;
   font-family: 'Oswald', sans-serif;
+}
+.markers{
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  margin-top: 5px;
+  margin-left: 30px;
+  font-size: 18px;
+}
+.grupos{
+  margin-left: 30px;
+  margin-top: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  color: white;
+}
+.contenido{
+  margin-left: 30px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  color: white;
+}
+#esta {
+  margin-top: 20px;
+  display: none;
+}
+#ico {
+  margin-top: 20px;
 }

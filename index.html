@@ -7,7 +7,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/body.css">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
-	
+
+	<script src="https://d3js.org/d3.v4.min.js"></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -17,25 +18,49 @@
 <body>
 
 	<div id="header">
-		<h1 id="welcome"> APARTAMENTS FOR RENT IN CHICAGO</h1>
-	</div>	
-
-	<div id="description">
+		<h1 id="welcome"> APARTAMENTS FOR RENT IN CHICAGO</h1>	
 	 	<h1  id="descripctionmap"> Apartments near Department of Computer Science - University of Illinois, Chicago</h1>
-	</div>
+	</div>		
 
-	<div id="map">
-		<script src="js/map.js" type="text/javascript" ></script>
-	</div>
 
-	<div id="iconos">
-		
+	<div id="body">
+
+		<div id="estadisticas">
+			<div id="esta">
+				<h4 class="markers">Name: </h4>
+				<h4 class="contenido" id="Nombre"> <br> </h4>
+				<h4 class="markers">Address: </h4>
+				<h4 class="contenido" id="Direccion"> <br> </h4>
+				<h4 class="markers">Location: </h4>
+				<h4 class="contenido" id="Localidad"> <br> </h4>
+				<h4 class="markers">Type Apt: </h4>
+				<h4 class="contenido" id="Tipo"> <br> </h4>
+				<h4 class="markers">Telephone: </h4>
+				<h4 class="contenido" id="Telefono"> <br> </h4>
+			</div>
+		</div>
+
+		<div id="map">
+			<script src="js/map.js" type="text/javascript" ></script>
+		</div>
+
+		<div id="iconos">
+			<div id="ico">
+				<h4 class="markers">Markers: </h4>
+				<h4 class="markers">Hospitals</h4>
+				<form class="grupos">
+				  <input type="radio" name="gender" value="male" checked> Hide<br>
+				  <input type="radio" name="gender" value="female"> Show<br>
+				</form> 
+			</div>
+		</div>
+
 	</div>
 
 	<div id="piepagina">
+		<h4 id="demo"></h4>
 		<h4> &#169 jufcontrerasco </h4>
 	</div>
-
 
 
 </body>
