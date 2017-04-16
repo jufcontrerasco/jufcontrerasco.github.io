@@ -29,7 +29,7 @@ function initMap() {
             json = JSON.parse(text);
             
            
-            for (var i = 133; i<172; i++) { //Agregar informacion marcadores
+            for (var i =90; i<107; i++) { //Agregar informacion marcadores
                 var datos = [];
                 datos.push(json.data[i][19]); //0.Latitud
                 datos.push(json.data[i][20]); //1.Longitud
@@ -38,9 +38,72 @@ function initMap() {
                 datos.push(json.data[i][8]);  //4.Localidad
                 datos.push(json.data[i][10]); //5.Tipo propiedad
                 datos.push(json.data[i][14]); //6.Telefono1
-                datos.push(json.data[i][16]*12); //6.Telefono2
+
+                if (json.data[i][16] < 26) {
+                     datos.push("550"); //7.Precio
+                }
+                else if (25<json.data[i][16]<51){
+                     datos.push("700"); //7.Precio
+                }
+                else if (50<json.data[i][16]<76){
+                     datos.push("850"); //7.Precio
+                }
+                else if (75<json.data[i][16]){
+                     datos.push("950"); //7.Precio
+                }
                 AptData.push(datos);
-            };           
+            };
+            for (var i =121; i<130; i++) { //Agregar informacion marcadores
+                               
+                var datos = [];
+                datos.push(json.data[i][19]); //0.Latitud
+                datos.push(json.data[i][20]); //1.Longitud
+                datos.push(json.data[i][11]); //2.Nombre apartamento
+                datos.push(json.data[i][12]); //3.Direccion       
+                datos.push(json.data[i][8]);  //4.Localidad
+                datos.push(json.data[i][10]); //5.Tipo propiedad
+                datos.push(json.data[i][14]); //6.Telefono1
+
+                if (json.data[i][16] < 26) {
+                     datos.push("550"); //7.Precio
+                }
+                else if (25<json.data[i][16]<51){
+                     datos.push("700"); //7.Precio
+                }
+                else if (50<json.data[i][16]<76){
+                     datos.push("850"); //7.Precio
+                }
+                else if (75<json.data[i][16]){
+                     datos.push("950"); //7.Precio
+                }
+                AptData.push(datos);
+
+            }; 
+            for (var i =132; i<155; i++) { //Agregar informacion marcadores
+                               
+                var datos = [];
+                datos.push(json.data[i][19]); //0.Latitud
+                datos.push(json.data[i][20]); //1.Longitud
+                datos.push(json.data[i][11]); //2.Nombre apartamento
+                datos.push(json.data[i][12]); //3.Direccion       
+                datos.push(json.data[i][8]);  //4.Localidad
+                datos.push(json.data[i][10]); //5.Tipo propiedad
+                datos.push(json.data[i][14]); //6.Telefono1
+
+                if (json.data[i][16] < 26) {
+                     datos.push("550"); //7.Precio
+                }
+                else if (25<json.data[i][16]<51){
+                     datos.push("700"); //7.Precio
+                }
+                else if (50<json.data[i][16]<76){
+                     datos.push("850"); //7.Precio
+                }
+                else if (75<json.data[i][16]){
+                     datos.push("950"); //7.Precio
+                }               
+                AptData.push(datos);
+            };        
     
             var numMarkers = AptData.length; //Numero de marcadores
             var markers = [];
@@ -89,17 +152,18 @@ function initMap() {
                         markers[key] = new google.maps.Marker({
                             position: {lat: Number(AptData[key][0]), lng: Number(AptData[key][1])},
                             map: map,
-                            icon: "img/pin2.png",                                           
+                            icon: "img/pin10.png",                                           
                         });
 
                         google.maps.event.addListener(markers[key], 'click', function() {
                             
-                            document.getElementById('esta').style.display = 'block';
+                            //document.getElementById('names').style.display = 'block';
+                            document.getElementById('values').style.display = 'block';
 
                             if( prev_infowindow ) {
                                 prev_infowindow.close();
                             }
-                            infowindow.setContent(AptData[key][3]);
+                            infowindow.setContent(AptData[key][2]);
                             infowindow.open(map, markers[key]);
 
                             document.getElementById("Nombre").innerHTML = AptData[key][2];
@@ -107,6 +171,7 @@ function initMap() {
                             document.getElementById("Localidad").innerHTML = AptData[key][4];
                             document.getElementById("Tipo").innerHTML = AptData[key][5];
                             document.getElementById("Telefono").innerHTML = AptData[key][6];
+                            document.getElementById("Precio").innerHTML = "$"+AptData[key][7]+" /mo";
                             
                         });
                         
@@ -122,7 +187,7 @@ function initMap() {
             var markerU = new google.maps.Marker({ 
                     position: new google.maps.LatLng(41.870750,-87.650086), 
                     map: map,
-                    icon: "img/University.png",
+                    icon: "img/pin7.png",
                     title: 'Department of Computer Science - University of Illinois',
                     });                     
                 
