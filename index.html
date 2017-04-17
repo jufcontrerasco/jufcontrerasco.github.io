@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-<title>For Rent - Chicago</title>
+<title>Rent House - Chicago</title>
 
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/body.css">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
 
-	<script src="https://d3js.org/d3.v4.min.js"></script>	
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="js/policeb.js" type="text/javascript" ></script>
+	<script src="js/fireb.js" type="text/javascript" ></script>
+	<script src="js/libreb.js" type="text/javascript" ></script>
+	<script src="js/hospb.js" type="text/javascript" ></script>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 
 <head></head>
@@ -28,7 +32,7 @@
 
 		<div id="estadisticas">
 
-			<h4 id="titles">Information:</h4>
+			<h4 id="titles">Apartaments information:</h4>
 			<div id="names">
 				<h4 class="contenido">Name: </h4>
 				<h4 class="contenido">Address: </h4>
@@ -56,27 +60,31 @@
 
 			<div id="mark">
 				<div id="markers">
-					<img id="img" src="img/Hospital.png" alt="Hospitals"> 
-					<h4 id="img" class="contenido">&nbsp Hospitals: </h4>
+					<img id="img" src="img/police.png" alt="Police"> 
+					<h4 id="img" class="contenido">&nbsp Police Station: &nbsp </h4>
+					<button id="button" onclick="policeb()" class="btn btn-default btn-xs">Show</button>
 				</div>
 				<br>
 				<div id="markers">
-					<img id="img" src="img/Pharmacy.png" alt="Pharmacies">
-					<h4 id="img" class="contenido">&nbsp Pharmacies: </h4>
+					<img id="img" src="img/Hospital.png" alt="Hospitala">
+					<h4 id="img" class="contenido">&nbsp Hospitals: &nbsp </h4>
+					<button id="button" onclick="hospb()" class="btn btn-default btn-xs">Show</button>
+				</div>
+				<br>
+				<div id="markers">
+					<img id="img" src="img/Fire.png" alt="Fire">
+					<h4 id="img" class="contenido">&nbsp Fire Stations: &nbsp </h4>
+					<button id="button" onclick="fireb()" class="btn btn-default btn-xs">Show</button>
 				</div>
 				<br>
 				<div id="markers">
 					<img id="img" src="img/Library.png" alt="Libraries">
-				<h4 id="img" class="contenido">&nbsp Libraries: </h4>
-				</div>
-				<br>
-				<div id="markers">
-					<img id="img" src="img/Supermarket.png" alt="Supermarkets">
-				<h4 id="img" class="contenido">&nbsp Supermarkets: </h4>
-				</div>
+				<h4 id="img" class="contenido">&nbsp Libraries: &nbsp </h4>
+				<button id="button" onclick="libreb()" class="btn btn-default btn-xs">Show</button>
+				</div>				
 			</div>
+			
 			<h4 id="titles">Icons:</h4>
-
 			<div id="ico">
 				<div id="markers">
 					<img id="img" src="img/pin10.png" alt="Hospitals"> 
@@ -85,16 +93,22 @@
 				<br>
 				<div id="markers">
 					<img id="img" src="img/pin7.png" alt="Pharmacies">
-					<h4 id="img" class="contenido">&nbsp University Illinois </h4>
+					<h4 id="img" class="contenido">&nbsp University of Illinois </h4>
+					<br>
+					<h4 class="info">Please move the map, for refresh the markers.</h4>
 				</div>				
 			</div>
+
+		</div>
+
+		<div>
+			
 		</div>
 
 	</div>
 
 	<div id="piepagina">
-		<h4 id="demo"></h4>
-		<h4> &#169 jufcontrerasco </h4>
+		<h4 id="demo"> &#169 jufcontrerasco </h4>
 	</div>
 
 

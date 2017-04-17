@@ -159,6 +159,7 @@ function initMap() {
                             
                             //document.getElementById('names').style.display = 'block';
                             document.getElementById('values').style.display = 'block';
+                            
 
                             if( prev_infowindow ) {
                                 prev_infowindow.close();
@@ -172,6 +173,9 @@ function initMap() {
                             document.getElementById("Tipo").innerHTML = AptData[key][5];
                             document.getElementById("Telefono").innerHTML = AptData[key][6];
                             document.getElementById("Precio").innerHTML = "$"+AptData[key][7]+" /mo";
+
+
+                           
                             
                         });
                         
